@@ -1,0 +1,28 @@
+{
+  "confidence_thresholds": {
+    "high_confidence": 0.9,
+    "medium_confidence": 0.7,
+    "low_confidence": 0.5,
+    "very_low_confidence": 0.3
+  },
+  "clause_types": [
+    "termination",
+    "payment",
+    "liability",
+    "confidentiality",
+    "intellectual_property",
+    "dispute_resolution",
+    "force_majeure",
+    "governing_law",
+    "duration",
+    "internal_maintenance",
+    "additions_alterations",
+    "assignment",
+    "other"
+  ],
+  "feedback_settings": {
+    "auto_export_threshold": 100,
+    "export_format": "csv",
+    "include_metadata": true
+  }
+}

@@ -1,0 +1,14 @@
+[
+  {
+    "id": "doc_001",
+    "text": "This lease agreement is between John Smith (email: john.smith@email.com, phone: 555-123-4567) and ABC Property Management."
+  },
+  {
+    "id": "doc_002",
+    "text": "Employee Sarah Johnson (SSN: 123-45-6789) will receive a salary of $75,000 per year."
+  },
+  {
+    "id": "doc_003",
+    "text": "The client at 123 Main Street, New York, NY 10001 has requested confidential services."
+  }
+]

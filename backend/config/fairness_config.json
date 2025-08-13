@@ -1,0 +1,53 @@
+{
+  "bias_thresholds": {
+    "performance_disparity": 0.1,
+    "demographic_parity": 0.1,
+    "high_severity_threshold": 0.2
+  },
+  "contract_categories": {
+    "rental": [
+      "lease",
+      "rental",
+      "tenancy",
+      "landlord"
+    ],
+    "employment": [
+      "employment",
+      "job",
+      "work",
+      "employee"
+    ],
+    "service": [
+      "service",
+      "consulting",
+      "professional"
+    ],
+    "sales": [
+      "purchase",
+      "sale",
+      "buy",
+      "sell"
+    ],
+    "partnership": [
+      "partnership",
+      "joint",
+      "collaboration"
+    ],
+    "nda": [
+      "confidentiality",
+      "non-disclosure",
+      "nda"
+    ]
+  },
+  "metrics_to_calculate": [
+    "accuracy",
+    "f1_score",
+    "precision",
+    "recall"
+  ],
+  "visualization_settings": {
+    "create_charts": true,
+    "chart_format": "png",
+    "chart_dpi": 300
+  }
+}

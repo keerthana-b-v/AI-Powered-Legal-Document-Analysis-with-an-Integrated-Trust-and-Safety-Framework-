@@ -1,0 +1,64 @@
+{
+  "overall_metrics": {
+    "accuracy": 1.0,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1_score": 1.0
+  },
+  "group_metrics": {
+    "rental": {
+      "metrics": {
+        "accuracy": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1_score": 1.0
+      },
+      "sample_size": 50
+    },
+    "employment": {
+      "metrics": {
+        "accuracy": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1_score": 1.0
+      },
+      "sample_size": 30
+    },
+    "nda": {
+      "metrics": {
+        "accuracy": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1_score": 1.0
+      },
+      "sample_size": 20
+    },
+    "service": {
+      "metrics": {
+        "accuracy": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1_score": 1.0
+      },
+      "sample_size": 60
+    }
+  },
+  "bias_issues": [],
+  "recommendations": [
+    {
+      "type": "positive",
+      "priority": "low",
+      "title": "No significant bias detected",
+      "description": "The model shows relatively fair performance across contract types.",
+      "action": "Continue monitoring with regular audits."
+    }
+  ],
+  "audit_timestamp": "2025-08-07T21:24:25.393656",
+  "summary": {
+    "total_bias_issues": 0,
+    "high_severity_issues": 0,
+    "medium_severity_issues": 0,
+    "contract_types_analyzed": 4,
+    "total_recommendations": 1
+  }
+}

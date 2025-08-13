@@ -1,0 +1,14 @@
+[
+  {
+    "id": "doc_001",
+    "text": "This lease agreement is between John Smith (email: john.smith@email.com, phone: 555-123-4567) and ABC Property Management located at 123 Main Street, New York, NY. The tenant's SSN is 123-45-6789."
+  },
+  {
+    "id": "doc_002",
+    "text": "Employment contract for Jane Doe, residing at 456 Oak Avenue, Los Angeles, CA 90210. Contact: jane.doe@company.com, mobile: (555) 987-6543. Start date: January 15, 2024."
+  },
+  {
+    "id": "doc_003",
+    "text": "Service agreement between TechCorp Inc. and DataSolutions LLC. Primary contact: Michael Johnson (michael.j@techcorp.com). Office address: 789 Business Blvd, Suite 100, Chicago, IL 60601."
+  }
+]

@@ -1,0 +1,311 @@
+{
+  "overall_metrics": {
+    "accuracy": 0.847,
+    "macro_precision": 0.823,
+    "macro_recall": 0.815,
+    "macro_f1": 0.819,
+    "weighted_precision": 0.851,
+    "weighted_recall": 0.847,
+    "weighted_f1": 0.849
+  },
+  "per_class_metrics": {
+    "termination": {
+      "precision": 0.93,
+      "recall": 0.75,
+      "f1_score": 0.83,
+      "support": 20
+    },
+    "payment": {
+      "precision": 0.823,
+      "recall": 0.727,
+      "f1_score": 0.772,
+      "support": 11
+    },
+    "liability": {
+      "precision": 0.77,
+      "recall": 0.805,
+      "f1_score": 0.787,
+      "support": 20
+    },
+    "confidentiality": {
+      "precision": 0.943,
+      "recall": 0.9,
+      "f1_score": 0.921,
+      "support": 15
+    },
+    "intellectual_property": {
+      "precision": 0.887,
+      "recall": 0.804,
+      "f1_score": 0.843,
+      "support": 22
+    },
+    "dispute_resolution": {
+      "precision": 0.826,
+      "recall": 0.749,
+      "f1_score": 0.786,
+      "support": 7
+    },
+    "force_majeure": {
+      "precision": 0.869,
+      "recall": 0.843,
+      "f1_score": 0.856,
+      "support": 8
+    },
+    "governing_law": {
+      "precision": 0.879,
+      "recall": 0.862,
+      "f1_score": 0.87,
+      "support": 12
+    },
+    "duration": {
+      "precision": 0.891,
+      "recall": 0.917,
+      "f1_score": 0.904,
+      "support": 24
+    },
+    "internal_maintenance": {
+      "precision": 0.786,
+      "recall": 0.82,
+      "f1_score": 0.803,
+      "support": 17
+    },
+    "additions_alterations": {
+      "precision": 0.782,
+      "recall": 0.749,
+      "f1_score": 0.765,
+      "support": 23
+    },
+    "assignment": {
+      "precision": 0.912,
+      "recall": 0.771,
+      "f1_score": 0.836,
+      "support": 13
+    },
+    "other": {
+      "precision": 0.799,
+      "recall": 0.861,
+      "f1_score": 0.829,
+      "support": 8
+    }
+  },
+  "confusion_matrix": {
+    "termination": {
+      "termination": 24,
+      "payment": 1,
+      "liability": 0,
+      "confidentiality": 3,
+      "intellectual_property": 2,
+      "dispute_resolution": 0,
+      "force_majeure": 1,
+      "governing_law": 3,
+      "duration": 3,
+      "internal_maintenance": 2,
+      "additions_alterations": 1,
+      "assignment": 3,
+      "other": 2
+    },
+    "payment": {
+      "termination": 0,
+      "payment": 23,
+      "liability": 1,
+      "confidentiality": 3,
+      "intellectual_property": 3,
+      "dispute_resolution": 2,
+      "force_majeure": 3,
+      "governing_law": 3,
+      "duration": 1,
+      "internal_maintenance": 2,
+      "additions_alterations": 0,
+      "assignment": 3,
+      "other": 2
+    },
+    "liability": {
+      "termination": 3,
+      "payment": 2,
+      "liability": 15,
+      "confidentiality": 1,
+      "intellectual_property": 0,
+      "dispute_resolution": 0,
+      "force_majeure": 2,
+      "governing_law": 2,
+      "duration": 1,
+      "internal_maintenance": 0,
+      "additions_alterations": 1,
+      "assignment": 2,
+      "other": 0
+    },
+    "confidentiality": {
+      "termination": 2,
+      "payment": 2,
+      "liability": 3,
+      "confidentiality": 15,
+      "intellectual_property": 1,
+      "dispute_resolution": 0,
+      "force_majeure": 2,
+      "governing_law": 2,
+      "duration": 3,
+      "internal_maintenance": 1,
+      "additions_alterations": 2,
+      "assignment": 3,
+      "other": 2
+    },
+    "intellectual_property": {
+      "termination": 0,
+      "payment": 1,
+      "liability": 3,
+      "confidentiality": 0,
+      "intellectual_property": 19,
+      "dispute_resolution": 1,
+      "force_majeure": 2,
+      "governing_law": 2,
+      "duration": 1,
+      "internal_maintenance": 2,
+      "additions_alterations": 0,
+      "assignment": 1,
+      "other": 1
+    },
+    "dispute_resolution": {
+      "termination": 2,
+      "payment": 2,
+      "liability": 3,
+      "confidentiality": 3,
+      "intellectual_property": 3,
+      "dispute_resolution": 15,
+      "force_majeure": 1,
+      "governing_law": 2,
+      "duration": 2,
+      "internal_maintenance": 0,
+      "additions_alterations": 0,
+      "assignment": 3,
+      "other": 0
+    },
+    "force_majeure": {
+      "termination": 1,
+      "payment": 1,
+      "liability": 1,
+      "confidentiality": 2,
+      "intellectual_property": 3,
+      "dispute_resolution": 1,
+      "force_majeure": 24,
+      "governing_law": 3,
+      "duration": 1,
+      "internal_maintenance": 3,
+      "additions_alterations": 1,
+      "assignment": 3,
+      "other": 2
+    },
+    "governing_law": {
+      "termination": 1,
+      "payment": 3,
+      "liability": 1,
+      "confidentiality": 1,
+      "intellectual_property": 3,
+      "dispute_resolution": 2,
+      "force_majeure": 2,
+      "governing_law": 16,
+      "duration": 2,
+      "internal_maintenance": 0,
+      "additions_alterations": 0,
+      "assignment": 0,
+      "other": 3
+    },
+    "duration": {
+      "termination": 3,
+      "payment": 1,
+      "liability": 1,
+      "confidentiality": 2,
+      "intellectual_property": 0,
+      "dispute_resolution": 1,
+      "force_majeure": 2,
+      "governing_law": 1,
+      "duration": 16,
+      "internal_maintenance": 1,
+      "additions_alterations": 2,
+      "assignment": 2,
+      "other": 2
+    },
+    "internal_maintenance": {
+      "termination": 1,
+      "payment": 2,
+      "liability": 1,
+      "confidentiality": 0,
+      "intellectual_property": 3,
+      "dispute_resolution": 2,
+      "force_majeure": 3,
+      "governing_law": 0,
+      "duration": 2,
+      "internal_maintenance": 22,
+      "additions_alterations": 3,
+      "assignment": 1,
+      "other": 1
+    },
+    "additions_alterations": {
+      "termination": 1,
+      "payment": 0,
+      "liability": 2,
+      "confidentiality": 1,
+      "intellectual_property": 3,
+      "dispute_resolution": 3,
+      "force_majeure": 1,
+      "governing_law": 1,
+      "duration": 2,
+      "internal_maintenance": 1,
+      "additions_alterations": 24,
+      "assignment": 0,
+      "other": 2
+    },
+    "assignment": {
+      "termination": 0,
+      "payment": 3,
+      "liability": 1,
+      "confidentiality": 2,
+      "intellectual_property": 1,
+      "dispute_resolution": 3,
+      "force_majeure": 0,
+      "governing_law": 2,
+      "duration": 0,
+      "internal_maintenance": 0,
+      "additions_alterations": 3,
+      "assignment": 20,
+      "other": 3
+    },
+    "other": {
+      "termination": 1,
+      "payment": 1,
+      "liability": 0,
+      "confidentiality": 2,
+      "intellectual_property": 3,
+      "dispute_resolution": 3,
+      "force_majeure": 3,
+      "governing_law": 2,
+      "duration": 0,
+      "internal_maintenance": 3,
+      "additions_alterations": 1,
+      "assignment": 3,
+      "other": 17
+    }
+  },
+  "evaluation_metadata": {
+    "total_samples": 156,
+    "num_classes": 13,
+    "class_names": [
+      "termination",
+      "payment",
+      "liability",
+      "confidentiality",
+      "intellectual_property",
+      "dispute_resolution",
+      "force_majeure",
+      "governing_law",
+      "duration",
+      "internal_maintenance",
+      "additions_alterations",
+      "assignment",
+      "other"
+    ],
+    "evaluation_date": "2025-07-30T06:40:08.848Z",
+    "model_path": "mock_model",
+    "dataset": "CUAD Test Split + Synthetic Examples",
+    "note": "Mock evaluation results for demonstration"
+  }
+}

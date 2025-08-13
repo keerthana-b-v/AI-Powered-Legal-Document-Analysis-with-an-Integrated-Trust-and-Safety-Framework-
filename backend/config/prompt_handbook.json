@@ -1,0 +1,251 @@
+{
+  "prompt_handbook": {
+    "version": "3.0",
+    "description": "Production-grade systematic prompt templates for expert-level legal analysis",
+    "clause_type_prompts": {
+      "liability": {
+        "targeted_question": "Analyze this liability clause for unbalanced liability allocation, unlimited exposure risks, and missing protective limitations. Specifically examine: (1) whether liability is capped or unlimited, (2) if indemnification obligations are mutual or one-sided, (3) whether consequential damages are excluded, (4) if there are reasonable carve-outs for gross negligence or willful misconduct, and (5) whether liability allocation reflects actual risk exposure.",
+        "expert_guidance": "Suggest adding a liability cap equal to 12 months of contract value or $500,000 (whichever is greater), mutual indemnification provisions, exclusion of consequential and punitive damages, standard carve-outs for gross negligence and willful misconduct, and IP infringement protections. Include specific dollar amounts and percentage limitations.",
+        "specific_language_template": "Each party's total liability shall not exceed the greater of (i) twelve (12) months of fees paid under this Agreement or (ii) $500,000. Neither party shall be liable for consequential, incidental, special, or punitive damages, except for breaches of confidentiality, IP infringement, or gross negligence.",
+        "risk_indicators": [
+          "unlimited liability",
+          "broad indemnification",
+          "consequential damages",
+          "no liability cap",
+          "one-sided indemnification"
+        ],
+        "success_metrics": ["specific dollar cap", "mutual obligations", "damage exclusions", "carve-out provisions"]
+      },
+      "duration": {
+        "targeted_question": "Analyze this duration clause for clarity on lease term, renewal mechanisms, and termination flexibility. Specifically examine: (1) whether the initial term and commencement date are clearly defined, (2) if renewal terms are automatic or require mutual consent, (3) whether early termination options exist with reasonable notice periods, (4) if renewal notification deadlines are specified, and (5) whether duration aligns with business planning cycles.",
+        "expert_guidance": "Suggest adding clear commencement and expiration dates, requiring 60-90 days written notice for non-renewal, providing early termination rights with 30-60 days notice for material breach (with 30-day cure period), eliminating automatic renewal in favor of mutual written agreement, and ensuring renewal terms don't exceed 24 months without renegotiation.",
+        "specific_language_template": "Initial term: [START_DATE] to [END_DATE]. Either party may terminate with sixty (60) days prior written notice. No automatic renewal - extensions require mutual written consent. Early termination for material breach allowed with thirty (30) days notice and thirty (30) day cure period.",
+        "risk_indicators": [
+          "auto-renewal",
+          "unclear term dates",
+          "no early termination",
+          "excessive commitment periods",
+          "automatic extension"
+        ],
+        "success_metrics": ["specific dates", "notice periods", "termination rights", "renewal consent requirements"]
+      },
+      "payment": {
+        "targeted_question": "Analyze this payment clause for completeness of payment terms, penalty fairness, and cash flow protection. Specifically examine: (1) whether payment amounts, due dates, and methods are clearly specified, (2) if late payment penalties are reasonable (typically 1.5% per month maximum), (3) whether advance payments or deposits are required, (4) if there are provisions for disputed amounts and invoice deadlines, and (5) whether payment terms support healthy cash flow.",
+        "expert_guidance": "Suggest adding specific invoice deadlines (Net 30 days), limiting late fees to 1.5% per month or $50 minimum (whichever is greater), requiring detailed invoices with line-item descriptions, allowing for good faith dispute resolution with payment suspension for contested amounts, eliminating advance payments exceeding one month's charges, and including early payment discounts where appropriate.",
+        "specific_language_template": "Payment terms: Net 30 days from invoice receipt. Late fees: greater of $50 or 1.5% per month. Detailed invoices required with line-item descriptions. Disputed amounts may be withheld pending good faith resolution within 30 days. No advance payments exceeding one month's charges.",
+        "risk_indicators": [
+          "excessive late fees",
+          "advance payments",
+          "unclear due dates",
+          "non-refundable deposits",
+          "no dispute resolution"
+        ],
+        "success_metrics": [
+          "specific payment terms",
+          "reasonable late fees",
+          "dispute procedures",
+          "cash flow protection"
+        ]
+      },
+      "termination": {
+        "targeted_question": "Analyze this termination clause for balanced termination rights and adequate notice provisions. Specifically examine: (1) whether termination rights are mutual or favor one party, (2) if there are distinct provisions for termination for cause versus convenience, (3) whether adequate notice periods are provided (typically 30-60 days), (4) if cure periods are included for material breaches (typically 30 days), and (5) whether post-termination obligations are clearly defined.",
+        "expert_guidance": "Suggest adding mutual termination rights, requiring 60 days written notice for termination for convenience, providing 30-day cure periods for material breaches before termination for cause, defining 'material breach' with specific examples, including survival clauses for confidentiality and payment obligations, and ensuring termination procedures are practical and enforceable.",
+        "specific_language_template": "Either party may terminate: (i) for convenience with sixty (60) days written notice, or (ii) for material breach with thirty (30) days written notice and thirty (30) day cure period. Material breach includes: [specific examples]. Confidentiality and payment obligations survive termination.",
+        "risk_indicators": [
+          "immediate termination",
+          "no cure periods",
+          "one-sided termination rights",
+          "inadequate notice",
+          "undefined material breach"
+        ],
+        "success_metrics": ["mutual rights", "adequate notice", "cure periods", "survival clauses"]
+      },
+      "confidentiality": {
+        "targeted_question": "Analyze this confidentiality clause for scope definition, duration limits, and practical exceptions. Specifically examine: (1) whether 'confidential information' is clearly and reasonably defined, (2) if the confidentiality period is limited (typically 3-5 years), (3) whether standard exceptions exist for publicly available information, independently developed information, and legally required disclosures, (4) if obligations are mutual, and (5) whether marking requirements are practical.",
+        "expert_guidance": "Suggest limiting confidentiality obligations to 5 years post-termination, defining confidential information to exclude publicly available information and independently developed materials, adding standard exceptions for legal compliance and court orders, ensuring mutual obligations, requiring written marking of confidential materials, and including return/destruction obligations upon termination.",
+        "specific_language_template": "Confidentiality period: 5 years post-termination. Excludes: (i) publicly available information, (ii) independently developed materials, (iii) legally required disclosures. Mutual obligations. Confidential materials must be clearly marked. Return/destruction required within 30 days of termination.",
+        "risk_indicators": [
+          "perpetual confidentiality",
+          "overly broad definitions",
+          "one-way obligations",
+          "no standard exceptions",
+          "impractical marking requirements"
+        ],
+        "success_metrics": ["time limitations", "clear definitions", "mutual obligations", "standard exceptions"]
+      },
+      "intellectual_property": {
+        "targeted_question": "Analyze this IP clause for ownership clarity and scope of rights transfer. Specifically examine: (1) whether pre-existing IP rights are preserved, (2) if work product ownership is clearly defined, (3) whether IP assignments are limited to work specifically created under the agreement, (4) if there are appropriate licenses back to the creating party, and (5) whether IP warranties and indemnification are included.",
+        "expert_guidance": "Suggest preserving each party's pre-existing IP rights, limiting IP assignments to work product specifically created and paid for under the agreement, providing the creating party with a license to use their work product for their own business purposes, requiring fair compensation for broad IP transfers, and including mutual IP warranties and indemnification provisions.",
+        "specific_language_template": "Each party retains ownership of pre-existing IP. Work product created under this Agreement shall be owned by [PARTY]. Creating party retains license for own business use. Mutual IP warranties and indemnification for IP infringement claims.",
+        "risk_indicators": [
+          "broad IP assignment",
+          "work for hire provisions",
+          "no retained rights",
+          "inadequate compensation",
+          "one-sided IP warranties"
+        ],
+        "success_metrics": [
+          "preserved pre-existing rights",
+          "clear work product ownership",
+          "retained licenses",
+          "fair compensation"
+        ]
+      },
+      "dispute_resolution": {
+        "targeted_question": "Analyze this dispute resolution clause for fairness and accessibility. Specifically examine: (1) whether arbitration is mandatory or optional, (2) if the chosen venue and governing law are reasonable for both parties, (3) whether there are provisions for expedited resolution of smaller disputes, (4) if cost allocation is fair (typically each party bears their own costs), and (5) whether mediation is required before arbitration.",
+        "expert_guidance": "Suggest making arbitration optional rather than mandatory, choosing a neutral venue convenient to both parties, requiring mediation before arbitration, allowing expedited procedures for disputes under $50,000, providing that each party bears their own attorney fees unless there's a clear prevailing party, and including specific arbitration rules (e.g., AAA Commercial Rules).",
+        "specific_language_template": "Disputes: (i) good faith negotiation for 30 days, (ii) mediation if negotiation fails, (iii) binding arbitration under AAA Commercial Rules if mediation fails. Neutral venue. Each party bears own costs unless clear prevailing party. Expedited procedures for disputes under $50,000.",
+        "risk_indicators": [
+          "mandatory arbitration",
+          "inconvenient venue",
+          "no mediation requirement",
+          "unfair cost allocation",
+          "no expedited procedures"
+        ],
+        "success_metrics": ["optional arbitration", "neutral venue", "mediation requirement", "fair cost allocation"]
+      },
+      "governing_law": {
+        "targeted_question": "Analyze this governing law clause for jurisdictional fairness and practical enforceability. Specifically examine: (1) whether the chosen governing law is neutral or favors one party, (2) if the jurisdiction is convenient for both parties, (3) whether there are any unusual choice of law provisions, (4) if venue selection is reasonable, and (5) whether the chosen law has well-developed commercial jurisprudence.",
+        "expert_guidance": "Suggest choosing the governing law of the state where the primary performance occurs or where the agreement was negotiated, selecting a jurisdiction with well-developed commercial law (e.g., New York, Delaware, California), ensuring venue is reasonably convenient to both parties, avoiding unusual choice of law provisions, and including waiver of inconvenient forum objections.",
+        "specific_language_template": "Governing law: [STATE] law, excluding conflict of law principles. Jurisdiction: state and federal courts in [CITY, STATE]. Both parties waive objections to venue and personal jurisdiction in such courts.",
+        "risk_indicators": [
+          "unfavorable jurisdiction",
+          "inconvenient venue",
+          "unusual choice of law provisions",
+          "underdeveloped commercial law",
+          "forum shopping provisions"
+        ],
+        "success_metrics": [
+          "neutral jurisdiction",
+          "convenient venue",
+          "developed commercial law",
+          "clear venue selection"
+        ]
+      },
+      "force_majeure": {
+        "targeted_question": "Analyze this force majeure clause for comprehensive event coverage and fair relief provisions. Specifically examine: (1) whether the definition of force majeure events is sufficiently broad to include modern risks like pandemics and cyber attacks, (2) if notice requirements are reasonable (typically 30 days), (3) whether there are provisions for contract suspension versus termination, (4) if mitigation obligations are included, and (5) whether relief is proportionate to the impact.",
+        "expert_guidance": "Suggest expanding force majeure definition to include pandemics, cyber attacks, government actions, and supply chain disruptions, requiring prompt notice (within 30 days) of force majeure events, allowing contract suspension rather than immediate termination, including obligations to mitigate impacts and seek alternative performance, and providing for equitable risk sharing during extended force majeure periods.",
+        "specific_language_template": "Force majeure events include: acts of God, pandemics, cyber attacks, government actions, and supply chain disruptions beyond reasonable control. Notice required within 30 days. Contract suspension (not termination) during force majeure. Duty to mitigate and seek alternatives. Equitable adjustment for extended periods exceeding 90 days.",
+        "risk_indicators": [
+          "narrow force majeure definition",
+          "unreasonable notice requirements",
+          "no suspension provisions",
+          "no mitigation obligations",
+          "immediate termination rights"
+        ],
+        "success_metrics": [
+          "comprehensive definition",
+          "reasonable notice",
+          "suspension provisions",
+          "mitigation obligations"
+        ]
+      },
+      "internal_maintenance": {
+        "targeted_question": "Analyze this internal maintenance clause for scope limitations and cost allocation fairness. Specifically examine: (1) whether tenant maintenance obligations are limited to normal wear and tear and interior items, (2) if structural repairs and major systems are excluded from tenant responsibility, (3) whether there are cost thresholds above which landlord becomes responsible, (4) if maintenance standards are clearly defined, and (5) whether emergency repair procedures are included.",
+        "expert_guidance": "Suggest limiting tenant maintenance to interior cosmetic items and normal wear and tear, excluding structural repairs, HVAC systems, plumbing, electrical systems, and building envelope from tenant responsibility, setting cost thresholds ($500-$1,000 per incident) above which landlord is responsible, defining 'normal wear and tear' with specific examples, and including emergency repair procedures with cost allocation.",
+        "specific_language_template": "Tenant responsible for: interior cosmetic maintenance, normal wear and tear under $500 per incident. Landlord responsible for: structural repairs, HVAC, plumbing, electrical, building systems, and repairs exceeding $500. Emergency repairs: tenant may proceed with landlord reimbursement if landlord unreachable for 48 hours.",
+        "risk_indicators": [
+          "broad maintenance obligations",
+          "structural repair responsibility",
+          "unlimited cost exposure",
+          "undefined maintenance standards",
+          "no emergency procedures"
+        ],
+        "success_metrics": ["limited scope", "cost thresholds", "clear definitions", "emergency procedures"]
+      },
+      "additions_alterations": {
+        "targeted_question": "Analyze this additions/alterations clause for approval processes and restoration requirements. Specifically examine: (1) whether minor alterations (under $1,000) can be made without approval, (2) if the approval process includes reasonable timeframes and criteria, (3) whether restoration requirements are limited to non-standard improvements, (4) if tenant can retain ownership of certain improvements, and (5) whether approval cannot be unreasonably withheld.",
+        "expert_guidance": "Suggest allowing minor alterations under $1,000 without landlord consent, requiring landlord approval decisions within 30 days with specific criteria, limiting restoration obligations to non-standard improvements that affect building systems or structure, allowing tenant to retain ownership of trade fixtures and equipment, providing that improvements enhancing property value need not be removed, and including 'not unreasonably withheld' standard for approvals.",
+        "specific_language_template": "Minor alterations under $1,000: no approval required. Major alterations: landlord approval within 30 days, not unreasonably withheld. Restoration required only for non-standard improvements affecting building systems. Tenant retains trade fixtures and equipment. Value-enhancing improvements may remain at landlord's option.",
+        "risk_indicators": [
+          "no alterations allowed",
+          "unreasonable approval requirements",
+          "broad restoration obligations",
+          "no retained ownership rights",
+          "undefined approval criteria"
+        ],
+        "success_metrics": [
+          "minor alteration allowance",
+          "reasonable approval process",
+          "limited restoration",
+          "retained ownership rights"
+        ]
+      },
+      "assignment": {
+        "targeted_question": "Analyze this assignment clause for transfer restrictions and consent requirements. Specifically examine: (1) whether assignment restrictions are mutual or one-sided, (2) if consent requirements include 'not to be unreasonably withheld' language, (3) whether assignments to affiliates or in connection with mergers are permitted, (4) if there are notification requirements and timeframes for consent decisions, and (5) whether personal guarantees survive assignment.",
+        "expert_guidance": "Suggest adding language that consent to assignment 'shall not be unreasonably withheld, conditioned, or delayed,' allowing assignments to affiliates and successors without consent, permitting assignments in connection with mergers or asset sales with notice, requiring consent decisions within 30 days of written request, and clarifying whether personal guarantees survive assignment or are released.",
+        "specific_language_template": "Assignment consent shall not be unreasonably withheld, conditioned, or delayed. No consent required for assignments to affiliates or in connection with mergers/asset sales (with 30 days notice). Consent decisions required within 30 days. Personal guarantees [survive/are released] upon assignment to creditworthy assignee.",
+        "risk_indicators": [
+          "no assignment allowed",
+          "unreasonable consent requirements",
+          "one-sided restrictions",
+          "no affiliate exceptions",
+          "undefined consent timeframes"
+        ],
+        "success_metrics": [
+          "reasonable consent standard",
+          "affiliate exceptions",
+          "merger/sale provisions",
+          "defined timeframes"
+        ]
+      },
+      "default": {
+        "targeted_question": "Analyze this clause for standard business risk factors, unusual terms, and alignment with typical commercial practices. Examine the clause for any one-sided obligations, missing protective provisions, or terms that could create unexpected business risks or operational difficulties.",
+        "expert_guidance": "Review this clause for alignment with standard business objectives and risk tolerance. Consider whether the terms are mutual and balanced, if there are adequate protective provisions, whether the clause supports the overall business relationship goals, and if any unusual terms require special attention or negotiation.",
+        "specific_language_template": "Consider adding mutual obligations, reasonable notice requirements, standard protective provisions, and clear performance standards appropriate to this clause type.",
+        "risk_indicators": [
+          "unusual terms",
+          "one-sided obligations",
+          "missing protections",
+          "undefined standards",
+          "unreasonable requirements"
+        ],
+        "success_metrics": ["balanced terms", "mutual obligations", "protective provisions", "clear standards"]
+      }
+    },
+    "risk_level_modifiers": {
+      "critical": {
+        "urgency_prefix": "🚨 CRITICAL RISK - IMMEDIATE LEGAL REVIEW REQUIRED: ",
+        "action_intensifier": "This clause poses significant legal and financial risk and must be negotiated before signing. ",
+        "recommendation_style": "urgent_specific_with_alternatives"
+      },
+      "high": {
+        "urgency_prefix": "⚠️ HIGH RISK - PRIORITY NEGOTIATION NEEDED: ",
+        "action_intensifier": "This clause requires careful review and likely modification to reduce exposure. ",
+        "recommendation_style": "detailed_specific_with_examples"
+      },
+      "medium": {
+        "urgency_prefix": "📋 MODERATE RISK - REVIEW AND OPTIMIZE: ",
+        "action_intensifier": "This clause should be reviewed for potential improvements and risk reduction. ",
+        "recommendation_style": "balanced_specific_with_options"
+      },
+      "low": {
+        "urgency_prefix": "✅ LOW RISK - MINOR OPTIMIZATION: ",
+        "action_intensifier": "This clause appears reasonable but could be optimized for better terms. ",
+        "recommendation_style": "optimization_focused_with_benefits"
+      }
+    },
+    "suggestion_templates": {
+      "urgent_specific_with_alternatives": "{urgency_prefix}{suggestion}\n\nIMPACT: {justification}\n\nSPECIFIC LANGUAGE: {specific_language}\n\nALTERNATIVES: {alternatives}",
+      "detailed_specific_with_examples": "{urgency_prefix}{suggestion}\n\nBUSINESS IMPACT: {justification}\n\nRECOMMENDED LANGUAGE: {specific_language}\n\nEXAMPLES: {examples}",
+      "balanced_specific_with_options": "{urgency_prefix}{suggestion}\n\nREASONING: {justification}\n\nIMPLEMENTATION OPTIONS: {specific_language}",
+      "optimization_focused_with_benefits": "{urgency_prefix}{suggestion}\n\nBENEFITS: {justification}\n\nSUGGESTED APPROACH: {specific_language}"
+    },
+    "quality_assurance": {
+      "required_elements": [
+        "specific_dollar_amounts_or_percentages",
+        "exact_timeframes_and_deadlines",
+        "concrete_action_items",
+        "implementable_contract_language",
+        "clear_business_rationale"
+      ],
+      "prohibited_generic_phrases": [
+        "review clause alignment",
+        "consider business objectives",
+        "ensure reasonable terms",
+        "verify standard practices",
+        "align with risk tolerance"
+      ]
+    }
+  }
+}
