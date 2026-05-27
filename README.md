@@ -1,30 +1,36 @@
-# AI-Powered Legal Document Analysis Platform (with Integrated Trust & Safety Framework)
+# LegalMind — Autonomous Legal Document Intelligence & Trust-Safety AI Agent
 
-![Project Banner](assets/legalmind_banner.png)
-
-> A production-grade contract intelligence platform that balances advanced neural clause classification with automated PII redaction, statistical bias auditing, Explainable AI (XAI) risk analysis, and active human-in-the-loop learning.
+> A production-grade, autonomous AI Agent that balances advanced computer vision perception, neural clause classification, LLM-based reasoning, and self-auditing Trust & Safety guardrails (PII redaction, statistical bias auditing, and human-in-the-loop active learning).
 
 ---
 
-## 🚀 Key Features
+## 🤖 Why is this an "AI Agent"? (For Interviewers)
 
-*   **Intelligent Layout-Aware OCR (CV):** Powered by **OpenCV** and **PyMuPDF (fitz)**. Intelligent page-by-page rendering identifies and crops out noisy headers (e-stamp regions) and footers (page numbers, margins), running adaptive binarization and Gaussian filtering to **improve Tesseract OCR accuracy by 32%** on low-quality scanned legal documents.
-*   **Legal-BERT Clause Classifier:** Uses a **PyTorch** sequence classification model (`nlpaueb/legal-bert-base-uncased`) fine-tuned on the Contract Understanding Atticus Dataset (CUAD) to categorize clauses (Liability, Termination, Payment, confidentiality, Governing Law, etc.) with a **92% macro F1-score**.
-*   **Enterprise-Grade Trust & Safety Suite:**
-    *   **Privacy Protection Module (`PIIRedactor`):** Combines **spaCy Named Entity Recognition (NER)** (`en_core_web_lg`) with highly compiled regular expressions to detect and redact sensitive personal information (Names, Locations, SSNs, credit cards, emails, IP addresses), returning a mathematical **Privacy Score** and complete GDPR compliance audits.
-    *   **Algorithmic Fairness Auditor (`FairnessAuditor`):** Runs automated statistical tests (Accuracy, Weighted F1, Precision, Recall) across different contract classes to detect performance disparities and demographic parity issues. Automatically generates Seaborn/Matplotlib visualization charts and detailed mitigation guides.
-    *   **Accountability & Confidence Scoring:** Calculates real-time prediction probability logits. High-confidence categorizations are automated, while low-confidence predictions are tagged to trigger a human-in-the-loop review.
-*   **Explainable AI (XAI) Risk Engine:** Implements a systematic **Prompt Handbook** utilizing a hybrid keyword-density and sequence-length trigger scanner (identifying broad liability, unilateral sole-discretion, auto-renewals, etc.) to mathematically adjust risk scores and build deep, expert-level prompt contexts for GPT risk mitigations.
-*   **Active Human-In-The-Loop (HITL) Learning:** A robust MongoDB-backed **Feedback Collector** logs user-corrected annotations and model metadata. Users can export structured CSV annotation datasets to enable active learning and continuous model retraining.
-*   **Dynamic Visual Dashboard:** Built using **React 18** and styled with **Tailwind CSS**. Renders real-time contract breakdowns, compliance scores, dynamic charts, and an interactive, color-graded **Confusion Matrix** utilizing **Recharts**.
+Rather than acting as a static text parser or a passive classification script, **LegalMind is designed as an autonomous, self-correcting AI Agent**. It exhibits all four core pillars of agentic architecture:
+
+1.  **Agentic Perception (Multi-Modal Input):** Uses **Computer Vision (OpenCV)** and **PyMuPDF** to autonomously analyze document layouts, programmatically isolate actual content bodies from watermark noise/stamp regions, and run targeted OCR.
+2.  **Cognitive Reasoning & Decision-Making:** Leverages a hybrid model structure. A fine-tuned **Legal-BERT** model performs high-precision neural sequence classification, while a **Generative LLM** acts as an expert legal advisor, using a systematic **Prompt Handbook** to formulate context-aware negotiation strategies.
+3.  **Autonomous Guardrails (Self-Safety Auditing):** Proactively protects system integrity. The agent autonomously redacts sensitive PII before transmitting data, calculates its own prediction confidence scores, routes low-confidence decisions to human review, and conducts statistical fairness audits (`FairnessAuditor`) on its own predictions to identify and mitigate model bias.
+4.  **Active Learning Feedback Loop (Continuous Self-Improvement):** Employs an active feedback loop using MongoDB to capture human corrections, logging real-time user-corrected annotations to continuously enrich the agent's retraining dataset.
 
 ---
 
-## 🗺️ System Architecture & Data Flow
+## 🚀 Agentic Capabilities
+
+*   **Perceptual Layout Processing (CV):** Runs page-by-page computer vision analysis, cropping out stamp borders and footer page-number noise, applying Gaussian filters and adaptive thresholding to **boost Tesseract OCR accuracy by 32%** on low-quality scanned legal documents.
+*   **Neural Clause Classification:** Powered by a fine-tuned `nlpaueb/legal-bert-base-uncased` sequence classifier trained on the Contract Understanding Atticus Dataset (CUAD) to categorize 10+ legal clauses with a **92% macro F1-score**.
+*   **Explainable AI (XAI) Risk Engine:** Scans text for risk-mitigating or risk-triggering factors (e.g., unlimited liability, unilateral control), adjusts its internal risk scores mathematically, and auto-generates transparent legal reasoning justifications.
+*   **Autonomous Privacy Protection:** A dual-engine `PIIRedactor` combines **spaCy NER** (`en_core_web_lg`) with precise regex patterns to detect and mask PII (SSNs, credit cards, emails, names) before transmitting context, outputting a dynamic **Privacy Score** and GDPR compliance audit.
+*   **Algorithmic Bias Auditor:** Autonomously evaluates its own predictions using **Scikit-Learn** and **Pandas** to calculate performance disparities and demographic parity across contract types, rendering dynamic comparative visual charts using Seaborn.
+*   **Interactive Analytics Dashboard:** Built with **React 18** and **Tailwind CSS**. Connects directly to the backend to display agent metrics, audit warnings, and an interactive, color-graded **Confusion Matrix** using **Recharts**.
+
+---
+
+## 🗺️ System Architecture & Agentic Data Flow
 
 ```mermaid
 graph TD
-    A[Raw Legal Contract: PDF / JPG / DOCX] --> B[Layout-Aware Document Processor]
+    A[Raw Legal Contract: PDF / JPG / DOCX] --> B[Agentic Perception: CV Processor]
     
     subgraph CV Pre-Processing [OpenCV & PyMuPDF]
         B --> B1[Intelligent Coordinate Cropping]
@@ -33,7 +39,7 @@ graph TD
         B3 --> B4[Targeted Body OCR]
     end
     
-    B4 -->|Pre-Processed Plain Text| C[Trust & Safety Core]
+    B4 -->|Pre-Processed Plain Text| C[Trust & Safety Guardrail]
     
     subgraph Trust & Safety Pipeline [Trust & Safety Module]
         C --> D[PII Redactor: spaCy NER + Regex]
@@ -57,14 +63,14 @@ graph TD
 
 | Layer | Technologies | Purpose |
 | :--- | :--- | :--- |
-| **Frontend** | React 18, Tailwind CSS, Axios, Lucide Icons | Premium Single Page Application with dynamic document side-by-side view, elegant glassmorphic components, and drag-and-drop file upload. |
-| **Data Viz** | Recharts | Render interactive dashboard analytics, metrics timelines, and color-graded Confusion Matrices. |
-| **Backend REST API** | Node.js, Express, Mongoose | Multi-threaded routing hardened with **Helmet**, payload compression (**Compression**), rate-limiting (**Express Rate Limit**), and multipart file streaming (**Multer**). |
-| **Deep Learning** | PyTorch, Hugging Face Transformers | Tokenization and inference execution for custom fine-tuned Legal-BERT clause sequence classification. |
-| **Computer Vision** | OpenCV, PyMuPDF (fitz), Tesseract OCR | Document page rendering, custom region coordinate cropping, image filter cleanups, and targeted OCR. |
-| **Natural Language Processing** | spaCy (`en_core_web_lg`), Regular Expressions | Combined deep neural Named Entity Recognition with precise regex compilers for multi-entity PII anonymization. |
-| **Data Science & Auditing**| Scikit-Learn, Pandas, NumPy, Seaborn, Matplotlib | Algorithmic fairness audit computations, demographic parity tests, and report visualizations. |
-| **Database** | MongoDB | Highly indexed logging for documents, clause categorizations, and human active-learning annotations. |
+| **Frontend** | React 18, Tailwind CSS, Axios, Lucide Icons | Responsive user interface with elegant side-by-side contract analysis views and glassmorphic dashboards. |
+| **Data Viz** | Recharts | Render interactive agent analytics, performance timelines, and color-graded Confusion Matrices. |
+| **Backend API** | Node.js, Express, Mongoose | Hardened REST API routes with Helmet, payload compression, rate limiting, and multipart file streams. |
+| **Deep Learning** | PyTorch, Hugging Face Transformers | Custom fine-tuned Legal-BERT clause sequence classification and logit extraction. |
+| **Computer Vision** | OpenCV, PyMuPDF (fitz), Tesseract OCR | Multi-format rendering, coordinate-based layout cropping, noise filters, and targeted OCR. |
+| **Natural Language Processing** | spaCy (`en_core_web_lg`), Regular Expressions | Combined deep neural NER with regex compilers for multi-entity PII anonymization. |
+| **Data Science & Auditing**| Scikit-Learn, Pandas, NumPy, Seaborn, Matplotlib | Self-auditing bias math, demographic parity computations, and visual performance charts. |
+| **Database** | MongoDB | Highly indexed logging for agent decisions, documents, and active-learning human feedback annotations. |
 
 ---
 
@@ -79,7 +85,7 @@ graph TD
 ### 1. Backend Setup & AI Pipeline Installation
 ```bash
 # Clone the repository
-git clone https://github.com/your-username/AI-Powered-Legal-Document-Analysis-with-an-Integrated-Trust-and-Safety-Framework-.git
+git clone https://github.com/keerthana-b-v/AI-Powered-Legal-Document-Analysis-with-an-Integrated-Trust-and-Safety-Framework-.git
 cd AI-Powered-Legal-Document-Analysis-with-an-Integrated-Trust-and-Safety-Framework-/backend
 
 # Install Node dependencies
