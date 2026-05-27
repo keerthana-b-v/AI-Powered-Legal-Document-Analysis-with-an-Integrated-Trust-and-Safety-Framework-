@@ -1,80 +1,72 @@
-# LegalMind — Autonomous Legal Document Intelligence & Trust-Safety AI Agent
+# LegalMind: Autonomous AI Legal Document Analysis & Safety Agent
 
-> A production-grade, autonomous AI Agent that balances advanced computer vision perception, neural clause classification, LLM-based reasoning, and self-auditing Trust & Safety guardrails (PII redaction, statistical bias auditing, and human-in-the-loop active learning).
+LegalMind is a production-grade, autonomous AI Legal Document Analysis & Safety Agent designed to automate the ingestion, analysis, risk mitigation, and compliance auditing of complex legal contracts. 
 
----
-
-## 🤖 Why is this an "AI Agent"? (For Interviewers)
-
-Rather than acting as a static text parser or a passive classification script, **LegalMind is designed as an autonomous, self-correcting AI Agent**. It exhibits all four core pillars of agentic architecture:
-
-1.  **Agentic Perception (Multi-Modal Input):** Uses **Computer Vision (OpenCV)** and **PyMuPDF** to autonomously analyze document layouts, programmatically isolate actual content bodies from watermark noise/stamp regions, and run targeted OCR.
-2.  **Cognitive Reasoning & Decision-Making:** Leverages a hybrid model structure. A fine-tuned **Legal-BERT** model performs high-precision neural sequence classification, while a **Generative LLM** acts as an expert legal advisor, using a systematic **Prompt Handbook** to formulate context-aware negotiation strategies.
-3.  **Autonomous Guardrails (Self-Safety Auditing):** Proactively protects system integrity. The agent autonomously redacts sensitive PII before transmitting data, calculates its own prediction confidence scores, routes low-confidence decisions to human review, and conducts statistical fairness audits (`FairnessAuditor`) on its own predictions to identify and mitigate model bias.
-4.  **Active Learning Feedback Loop (Continuous Self-Improvement):** Employs an active feedback loop using MongoDB to capture human corrections, logging real-time user-corrected annotations to continuously enrich the agent's retraining dataset.
+Unlike basic document parsers or static wrapper APIs, LegalMind functions as an **autonomous agent** by perceiving raw unstructured inputs, making introspective routing decisions based on model confidence, enforcing privacy/fairness safety guardrails, and continuously learning from human feedback.
 
 ---
 
-## 🚀 Agentic Capabilities
+## 🧠 Why is this system an "AI Agent"?
+During interviews, you can confidently and honestly refer to this project as an **AI Agent** because it exhibits key agentic properties:
 
-*   **Perceptual Layout Processing (CV):** Runs page-by-page computer vision analysis, cropping out stamp borders and footer page-number noise, applying Gaussian filters and adaptive thresholding to **boost Tesseract OCR accuracy by 32%** on low-quality scanned legal documents.
-*   **Neural Clause Classification:** Powered by a fine-tuned `nlpaueb/legal-bert-base-uncased` sequence classifier trained on the Contract Understanding Atticus Dataset (CUAD) to categorize 10+ legal clauses with a **92% macro F1-score**.
-*   **Explainable AI (XAI) Risk Engine:** Scans text for risk-mitigating or risk-triggering factors (e.g., unlimited liability, unilateral control), adjusts its internal risk scores mathematically, and auto-generates transparent legal reasoning justifications.
-*   **Autonomous Privacy Protection:** A dual-engine `PIIRedactor` combines **spaCy NER** (`en_core_web_lg`) with precise regex patterns to detect and mask PII (SSNs, credit cards, emails, names) before transmitting context, outputting a dynamic **Privacy Score** and GDPR compliance audit.
-*   **Algorithmic Bias Auditor:** Autonomously evaluates its own predictions using **Scikit-Learn** and **Pandas** to calculate performance disparities and demographic parity across contract types, rendering dynamic comparative visual charts using Seaborn.
-*   **Interactive Analytics Dashboard:** Built with **React 18** and **Tailwind CSS**. Connects directly to the backend to display agent metrics, audit warnings, and an interactive, color-graded **Confusion Matrix** using **Recharts**.
+1. **Autonomous Perception & Computer Vision:** It does not rely on clean text. It ingests raw PDFs and images, using **OpenCV** to dynamically evaluate document coordinates, crop out stamp headers and footer margins, and clean up visual noise to run targeted binarized OCR.
+2. **Confidence-Based Introspective Decision Routing:** The agent evaluates its own neural classification outputs. By extracting probability logits, it judges its own certainty. High-confidence decisions are processed automatically; low-confidence decisions are flagged and routed to a Human-in-the-Loop (HITL) active learning stream.
+3. **Automated Guardrails & Compliance Execution:** Before any text is analyzed or shared with external APIs, a specialized **Trust & Safety middleware agent** audits the text, detects PII using neural Named Entity Recognition (NER), redacts sensitive data, and calculates an absolute mathematical privacy score.
+4. **Self-Correction & Continuous Active Learning:** It incorporates a closed-loop feedback mechanism. Expert corrections are captured in MongoDB to organically retrain and evolve the underlying Legal-BERT classifier.
 
 ---
 
-## 🗺️ System Architecture & Agentic Data Flow
+## ⚙️ Core Agentic Pipeline
+
+The agent executes a multi-stage sequential decision pipeline:
 
 ```mermaid
 graph TD
-    A[Raw Legal Contract: PDF / JPG / DOCX] --> B[Agentic Perception: CV Processor]
+    A[Unstructured Contract: PDF/Image/Docx] --> B[Autonomous Perception Layer]
+    B -->|OpenCV Coordinate Cropping & Noise Filters| C[Targeted Body OCR]
+    C -->|Extracted Text| D[Trust & Safety Guardrail Agent]
     
-    subgraph CV Pre-Processing [OpenCV & PyMuPDF]
-        B --> B1[Intelligent Coordinate Cropping]
-        B1 --> B2[Gaussian Blur / Noise Reduction]
-        B2 --> B3[Adaptive Thresholding Binarization]
-        B3 --> B4[Targeted Body OCR]
+    subgraph Trust & Safety Guardrails
+        D --> D1[Neural PII Redactor: spaCy NER + Regex]
+        D1 --> D2[Algorithmic Fairness Auditor: Disparity Audits]
+        D2 -->|GDPR / Privacy Compliant Anonymized Text| E[Introspective Decision Engine]
     end
     
-    B4 -->|Pre-Processed Plain Text| C[Trust & Safety Guardrail]
-    
-    subgraph Trust & Safety Pipeline [Trust & Safety Module]
-        C --> D[PII Redactor: spaCy NER + Regex]
-        D -->|Calculates Privacy Score| E[Anonymized Text]
-        E --> F[Confidence Scorer: BERT Logits]
-        F -->|Low Confidence| G[Route to HITL Review Pane]
-        F -->|High Confidence| H[Final Neural Clause Classifier]
+    subgraph Core Logic & Decision Engine
+        E --> F[Neural Classifier: Legal-BERT Inference]
+        F --> G{Confidence Audit: Prob Logits}
+        G -->|Confidence < Threshold| H[Route to Human-in-the-Loop Review]
+        G -->|Confidence >= Threshold| I[Automated Reasoning & XAI Analysis]
     end
     
-    H --> I[OpenAI-Powered Risk Suggestion Engine]
-    G -->|User Corrections / Annotations| J[MongoDB Feedback Collector]
-    J -->|Active Learning Dataset Export| K[Retrain BERT Model]
-    
-    E --> L[Fairness Auditor: Disparity Audits]
-    L -->|Matplotlib / Seaborn| M[Visual Compliance Reports]
+    I --> J[Contextual OpenAI suggestion & negotiation drafts]
+    H -->|Legal Specialist Corrections| K[Active Learning Feedback Database]
+    K -->|Incremental Retraining Datasets| L[Model Optimization & Retraining]
 ```
 
 ---
 
-## 🛠️ Technology Stack
+## 🛠️ System Architecture & Tech Stack
 
-| Layer | Technologies | Purpose |
-| :--- | :--- | :--- |
-| **Frontend** | React 18, Tailwind CSS, Axios, Lucide Icons | Responsive user interface with elegant side-by-side contract analysis views and glassmorphic dashboards. |
-| **Data Viz** | Recharts | Render interactive agent analytics, performance timelines, and color-graded Confusion Matrices. |
-| **Backend API** | Node.js, Express, Mongoose | Hardened REST API routes with Helmet, payload compression, rate limiting, and multipart file streams. |
-| **Deep Learning** | PyTorch, Hugging Face Transformers | Custom fine-tuned Legal-BERT clause sequence classification and logit extraction. |
-| **Computer Vision** | OpenCV, PyMuPDF (fitz), Tesseract OCR | Multi-format rendering, coordinate-based layout cropping, noise filters, and targeted OCR. |
-| **Natural Language Processing** | spaCy (`en_core_web_lg`), Regular Expressions | Combined deep neural NER with regex compilers for multi-entity PII anonymization. |
-| **Data Science & Auditing**| Scikit-Learn, Pandas, NumPy, Seaborn, Matplotlib | Self-auditing bias math, demographic parity computations, and visual performance charts. |
-| **Database** | MongoDB | Highly indexed logging for agent decisions, documents, and active-learning human feedback annotations. |
+### **1. AI & Core Machine Learning Engine**
+*   **Deep Learning & Inference:** **PyTorch** & **Hugging Face Transformers**. The core classifier is built on `nlpaueb/legal-bert-base-uncased` fine-tuned to classify 10+ granular legal clauses (e.g., liability, termination, payment, confidentiality, dispute resolution).
+*   **Natural Language Processing (NLP):** **spaCy** (`en_core_web_lg`) for neural Named Entity Recognition (NER) and high-performance pre-compiled Regular Expressions (Regex) for multi-entity privacy protection.
+*   **Explainable AI (XAI):** Custom weighted scanning arrays analyzing specific risk triggers (`unlimited liability`, `sole discretion`) and mitigators (`liability cap`, `cure period`) to adjust classification risk indexes.
+*   **Generative Reasoner:** **OpenAI API** powered by contextual engineering utilizing a pre-defined systematic **Prompt Handbook**.
+
+### **2. Document Perception & Computer Vision (CV)**
+*   **Layout Analysis:** **PyMuPDF (fitz)** for page extraction and coordinate mapping.
+*   **Image Processing:** **OpenCV** (adaptive thresholding, Gaussian blurs, morphological binarization) to filter stamp watermarks, scans, and page header/footer noise.
+*   **Optical Character Recognition:** **Tesseract OCR engine** (via Node and Python bindings).
+
+### **3. Full-Stack Web Architecture**
+*   **Frontend Interface:** **React 18** with **Tailwind CSS**. Designed for dynamic, side-by-side original vs. redacted contract comparisons, interactive metrics charts via **Recharts**, and visual model confusion matrices.
+*   **Backend API Services:** **Node.js** with **Express**, protected by **Helmet** (HTTP security headers), **Compression** (gzip packet reduction), and **Express Rate Limit** (DoS throttling).
+*   **Database & Logging:** **MongoDB** with **Mongoose** to log documents, clause metadata, metrics, and active learning annotations.
 
 ---
 
-## 📥 Getting Started
+## 📥 Getting Started & Installation
 
 ### Prerequisites
 *   Node.js (>= 16.0.0)
@@ -82,35 +74,23 @@ graph TD
 *   MongoDB (Running locally or MongoDB Atlas connection string)
 *   Tesseract OCR engine installed on your OS
 
-### 1. Backend Setup & AI Pipeline Installation
+### 1. Backend & Python Agent Setup
 ```bash
 # Clone the repository
 git clone https://github.com/keerthana-b-v/AI-Powered-Legal-Document-Analysis-with-an-Integrated-Trust-and-Safety-Framework-.git
 cd AI-Powered-Legal-Document-Analysis-with-an-Integrated-Trust-and-Safety-Framework-/backend
 
-# Install Node dependencies
+# Install API dependencies
 npm install
 
-# Create local environment configuration
-cp .env.example .env  # Add your MONGODB_URI and OPENAI_API_KEY
-```
-
-To configure the **Python Trust & Safety modules** (installing PyTorch, spaCy, Scikit-learn, downloading large NLP models, and writing local datasets/configurations):
-```bash
-# Run the automated setup script
+# Run the automated Python Agent configuration script
 python setup_trust_safety.py
-```
 
-To download datasets and fine-tune/test your local BERT model:
-```bash
-# Install Hugging Face requirements
+# Download datasets and configure Legal-BERT
 npm run setup-ai
-
-# Train your custom BERT classifier
-npm run train-bert
 ```
 
-### 2. Frontend Installation
+### 2. Frontend React Client Setup
 ```bash
 cd ../frontend
 npm install
@@ -120,50 +100,16 @@ npm install
 
 ## ⚡ Running the Platform
 
-### Start Backend Development Server
+### Start Backend REST API
 From the `/backend` directory:
 ```bash
-# Starts Node API server on http://localhost:5000
+# Runs Express API on http://localhost:5000
 npm run dev
 ```
 
-### Start Frontend Development Server
+### Start Frontend React Client
 From the `/frontend` directory:
 ```bash
-# Starts React client on http://localhost:3000 (proxies API requests to localhost:5000)
+# Runs React client on http://localhost:3000
 npm start
 ```
-
----
-
-## 📊 Trust & Safety Core Modules
-
-### 1. Privacy Protection (`PIIRedactor`)
-Monitors contracts for data protection compliance before exposing data to external LLMs.
-*   **Entities Redacted:** SSNs, Credit Cards, Names, Organizations, Locations, Emails, Phone Numbers, IP Addresses.
-*   **Privacy Score Metric:** 
-    $$\text{Privacy Score} = 1.0 - (\text{PII Density} \times 2 + \text{Average Entity Severity Weight} \times 0.5)$$
-*   **Compliance Classification:** High Compliance ($\ge 0.9$), Medium Compliance ($\ge 0.7$), Low Compliance ($\ge 0.5$), Critical Risk ($< 0.5$).
-
-### 2. Fairness Auditing (`FairnessAuditor`)
-Computes disparities across sensitive categories (e.g. comparing NDA performance vs. Sales Agreements) to ensure algorithmic fairness:
-*   **Performance Disparity Metrics:** Computes the mathematical delta between the highest and lowest performing groups for Accuracy, weighted F1, Precision, and Recall.
-*   **Trigger Threshold:** Disparities exceeding $10\%$ trigger warnings, while disparities exceeding $20\%$ write high-severity alerts recommending dataset augmentation.
-
-### 3. Explainable AI & Prompt Handbook (`XAIAnalyzer`)
-Ensures AI decisions are completely transparent. Triggers are mathematically logged using weighted indices:
-*   **High Risk Triggers (+3.0 to +4.0):** `"unlimited liability"`, `"sole discretion"`, `"without notice"`, `"personal guarantee"`, `"forfeit"`.
-*   **Mitigation Modifiers (-0.5 to -1.0):** `"liability cap"`, `"cure period"`, `"written consent"`, `"commercially reasonable"`.
-
----
-
-## 🔒 Security Hardening (Production-Ready)
-*   **Helmet.js:** Hardens HTTP response headers against web vulnerabilities.
-*   **Compression:** Employs Gzip compression to reduce packet payloads.
-*   **Express Rate Limit:** Configured standard rate limiting ($50$ requests per $15$ mins per IP) to prevent Denial of Service (DoS) attacks on heavy file processing endpoints.
-*   **Express Validator:** Implemented deep parameter validation to sanitize text uploads and inputs.
-
----
-
-## 📝 License
-Distributed under the MIT License. See `LICENSE` for details.
