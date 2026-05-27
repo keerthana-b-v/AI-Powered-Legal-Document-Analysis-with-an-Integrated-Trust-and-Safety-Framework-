@@ -6,8 +6,8 @@ Unlike basic document parsers or static wrapper APIs, LegalMind functions as an 
 
 ---
 
-## 🧠 Why is this system an "AI Agent"?
-During interviews, you can confidently and honestly refer to this project as an **AI Agent** because it exhibits key agentic properties:
+## 🧠 Agentic Architecture & Properties
+LegalMind operates as an autonomous AI Agent by integrating perception, introspective reasoning, self-governing guardrails, and continuous active learning:
 
 1. **Autonomous Perception & Computer Vision:** It does not rely on clean text. It ingests raw PDFs and images, using **OpenCV** to dynamically evaluate document coordinates, crop out stamp headers and footer margins, and clean up visual noise to run targeted binarized OCR.
 2. **Confidence-Based Introspective Decision Routing:** The agent evaluates its own neural classification outputs. By extracting probability logits, it judges its own certainty. High-confidence decisions are processed automatically; low-confidence decisions are flagged and routed to a Human-in-the-Loop (HITL) active learning stream.
